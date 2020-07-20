@@ -15,12 +15,11 @@ entity Country {
 	countryName String
 }
 
-
 enum Gender {
     MALE, FEMALE, OTHER
 }
 relationship OneToOne {
-	Actor{place} to Country{actor}
+	Actor to Country{actor}
 }
 service * with serviceClass
 paginate Actor, Country with pagination
