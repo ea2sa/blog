@@ -1,0 +1,29 @@
+/** Product sold by the Online store */
+
+entity Actor {
+    firstName String required
+    lastName String required
+    gender Gender required
+    email String required pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+    phone String required
+    addressLine1 String required
+    addressLine2 String
+    city String required
+    country String required
+}
+entity Country {
+	countryName String
+}
+
+
+enum Gender {
+    MALE, FEMALE, OTHER
+}
+relationship OneToOne {
+	Actor{place} to Country{actor}
+}
+service * with serviceClass
+paginate Actor, Country with pagination
+
+
+
